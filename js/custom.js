@@ -72,6 +72,11 @@ $(document).ready(function () {
     parallax();
   });
 
+  //EmailJs
+  (function () {
+    emailjs.init("user_IdY68pSYzHy3B5Jx0rK9c");
+  })();
+
   // AOS
   AOS.init({
     duration: 1200,
@@ -139,24 +144,35 @@ $(document).ready(function () {
         },
       },
       submitHandler: function (form) {
-        $(form).ajaxSubmit({
+        var data = {
+          service_id: "service_3k8ti1u",
+          template_id: "template_ueuhppd",
+          user_id: "user_IdY68pSYzHy3B5Jx0rK9c",
+          template_params: {
+            from_mail: $(".from_email").val(),
+            from_phone: $(".from_phone").val(),
+            message: $(".message").val(),
+            from_name: $(".from_name").val(),
+          },
+        };
+        $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
           type: "POST",
-          data: $(form).serialize(),
-          url: "process.php",
-          success: function () {
+          data: JSON.stringify(data),
+          contentType: "application/json",
+        })
+          .done(function () {
             $("#contact :input").attr("disabled", "disabled");
             $("#contact").fadeTo("slow", 1, function () {
               $(this).find(":input").attr("disabled", "disabled");
               $(this).find("label").css("cursor", "default");
               $("#success").fadeIn();
             });
-          },
-          error: function () {
+          })
+          .fail(function (error) {
             $("#contact").fadeTo("slow", 1, function () {
               $("#error").fadeIn();
             });
-          },
-        });
+          });
       },
     });
   });
