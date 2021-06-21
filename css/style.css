@@ -765,6 +765,7 @@ fieldset {
 @media (max-width: 500px) {
   #home {
     background: url(../img/home-bg-mobile.jpeg);
+    background-position: 43% 50% !important;
   }
   h1 {
     font-family: "Playfair Display", serif;
