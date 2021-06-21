@@ -149,7 +149,7 @@ $(document).ready(function () {
           template_id: "template_ueuhppd",
           user_id: "user_IdY68pSYzHy3B5Jx0rK9c",
           template_params: {
-            from_mail: $(".from_email").val(),
+            from_email: $(".from_email").val(),
             from_phone: $(".from_phone").val(),
             message: $(".message").val(),
             from_name: $(".from_name").val(),
