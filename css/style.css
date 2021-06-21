@@ -745,6 +745,7 @@ fieldset {
   color: #425bb5;
 }
 
+/* home-bg-mobile.jpeg */
 /* Responsive media queries
 ==================================================*/
 
@@ -762,6 +763,9 @@ fieldset {
 }
 
 @media (max-width: 500px) {
+  #home {
+    background: url(../img/home-bg-mobile.jpeg);
+  }
   h1 {
     font-family: "Playfair Display", serif;
     font-size: 50px;
